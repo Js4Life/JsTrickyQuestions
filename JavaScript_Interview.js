@@ -103,6 +103,67 @@ console.log(ObjectName);
 console.log(Math.max(1,2,3)); // -Infinity ...its lowest it compares
 
 
+function foo1()
+{
+  return {
+      bar: "hello"
+  };
+}
+
+function foo2()
+{
+  return
+  {
+      bar: "hello"
+  };
+}
+
+console.log (foo2()); // foo2 --> return --> undefined
+
+(function(){
+  var a = b = 3;
+})();
+
+console.log("a defined? " + (typeof a !== 'undefined')); // undefnied
+console.log("b defined? " + (typeof b !== 'undefined')); // true
+
+console.log('one');
+setTimeout(function() {
+  console.log('two');
+}, 0);
+Promise.resolve().then(function() {
+  console.log('three');
+})
+console.log('four'); // 1 4 3 2
+
+var foo = {n: 1};
+var bar = foo;
+foo.x = foo = {n: 2};
+
+console.log('value of foo ',foo.x) // undefined
+
+var foo = [];
+foo.push(1);
+foo.push(2);
+
+console.log('ength',foo.length) // 2
+
+var foo = "Hello";
+(function() {
+  var bar = " World";
+  return `${foo} + ${bar}`;
+})();
+console.log(foo + bar)
+
+
+// window.foo || (window.foo ="bar")
+// "bar"
+"i'm a lasagna hog".split("").reverse().join("");
+// "goh angasal a m'i"
+
+console.log('answer',0.1 + 0.2 == 0.3); // false 0.30000000000000004
+
+
 
 
 
